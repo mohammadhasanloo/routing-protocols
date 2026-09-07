@@ -6,7 +6,13 @@
 #include <vector>
 #include <sstream>
 #include "Constants.hpp"
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <climits>
+#include <iostream>
+#include <map>
+#include <sstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 

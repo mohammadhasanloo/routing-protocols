@@ -19,12 +19,18 @@ vector<string> CommandHandler::split(string str, char divider) {
 
 void CommandHandler::run()
 {
-    while(true)
-    {
-        string cmd;
-        getline(cin, cmd);
+    string cmd;
 
-        string cmd_type = split(cmd,' ')[0];
+    // getline is the loop condition, so end of input ends the loop. Reading it
+    // unconditionally leaves cmd empty at EOF, and splitting an empty line
+    // gives no tokens for the command lookup below to index.
+    while (getline(cin, cmd))
+    {
+        vector<string> parts = split(cmd, ' ');
+        if (parts.empty())
+            continue;
+
+        const string& cmd_type = parts[0];
         
         if (cmd_type == TOPOLOGY) {
             init_topology(split(cmd,' '));
